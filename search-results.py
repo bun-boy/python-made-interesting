@@ -13,7 +13,7 @@ res = requests.get(link)
 soup = bs4.BeautifulSoup(res.text,'html.parser')
 linkElems = soup.select('.package-snippet')
 
-for i in range(5):
+for i in range(min(5,len(linkElems))):
     url = "https://pypi.org/" + linkElems[i].get('href')
     print('Opening',url)
     webbrowser.open(url)
